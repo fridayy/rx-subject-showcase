@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class ReactiveStringList {
 
-    private final List<String> underlyingList = new ArrayList<>();
+    private final List<String> delegate = new ArrayList<>();
     private final PublishSubject<String> subject = PublishSubject.create();
 
 
     public void add(String toAdd) {
-        this.underlyingList.add(toAdd);
+        this.delegate.add(toAdd);
         this.subject.onNext(toAdd);
     }
 
