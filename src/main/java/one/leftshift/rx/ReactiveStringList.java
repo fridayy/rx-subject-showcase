@@ -4,6 +4,7 @@ import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,6 +26,10 @@ public class ReactiveStringList {
 
     public Observable<String> observable() {
         return this.subject;
+    }
+
+    public List<String> underlying() {
+        return Collections.unmodifiableList(delegate);
     }
 
     // could implement List<T> and generified...
